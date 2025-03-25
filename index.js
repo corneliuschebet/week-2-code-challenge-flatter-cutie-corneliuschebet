@@ -69,8 +69,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // Handle new character form submission
     characterForm.addEventListener("submit", event => {
         event.preventDefault();
-        const name = document.getElementById("new-name").value;
-        const image = document.getElementById("new-image").value;
+        const name = document.getElementById("name").value;
+        const image = document.getElementById("image-url").value;
         const newCharacter = { name, image, votes: 0 };
 
         fetch(baseURL, {
@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .then(res => res.json())
         .then(character => {
-            addCharacterToBar(character);
+            addCharacterToList(character);
             displayCharacterDetails(character);
         });
 
